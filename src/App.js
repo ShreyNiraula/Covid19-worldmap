@@ -20,6 +20,9 @@ function App() {
   // state is redux store
   const state = useSelector((state)=>state.corona);
 
+  const fetchData = (buttonType)=>{
+    // some of the action function ....
+  }
   return (
     <div className="App">
       <div className="header">
@@ -27,9 +30,9 @@ function App() {
       </div>
       {state.isLoading && <p>Loading...</p>}
       <div className="btn-grp" >
-        <button className='btn' id='btn-cases'>Cases</button>
-        <button className='btn' id='btn-deaths'>Deaths</button>
-        <button className='btn' id='btn-recovered'>Recovered</button>
+        <button onClick={()=>fetchData('cases')} className='btn' id='btn-cases'>Cases</button>
+        <button onClick={()=>fetchData('deaths')} className='btn' id='btn-deaths'>Deaths</button>
+        <button onClick={()=>fetchData('recovered')} className='btn' id='btn-recovered'>Recovered</button>
       </div>
       <div className="map-wrapper">
         <MapChart options={state.mapOptions} highcharts={Highcharts} />
