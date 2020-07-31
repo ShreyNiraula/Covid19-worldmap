@@ -7,11 +7,6 @@ const Footer = () => {
         </>
     )
 }
-const footerStyle = {
-    backgroundColor:'black',
-    color:'white',
-    padding:'0.5em',
-    textAlign:'center'
-}
+
 
 export default Footer

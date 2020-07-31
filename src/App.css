@@ -13,6 +13,29 @@
     color:white;
     padding:2em;
     text-align:center;
+    
+}
+.btn-grp{
+  text-align: center;
+  margin: 1em 0em;
+  
+}
+.btn{
+  border-radius: 4px;
+  padding:0.5em;
+  margin:0 1em;
+}
+#btn-cases:hover{
+  background-color:blue;
+  color: white;
+}
+#btn-deaths:hover{
+  background-color:red;
+  color: white;
+}
+#btn-recovered:hover{
+  background-color:green;
+  color: white;
 }
 .map-wrapper{
   min-height: 80vh;

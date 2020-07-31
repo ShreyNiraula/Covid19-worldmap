@@ -20,6 +20,11 @@ function App() {
       <div className="header">
         <Header></Header>
       </div>
+      <div className="btn-grp" >
+        <button className='btn' id='btn-cases'>Cases</button>
+        <button className='btn' id='btn-deaths'>Deaths</button>
+        <button className='btn' id='btn-recovered'>Recovered</button>
+      </div>
       <div className="map-wrapper">
         <MapChart options={mapOptions} highcharts={Highcharts} />
       </div>
