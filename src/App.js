@@ -1,5 +1,5 @@
 import React from "react";
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import "./App.css";
 
 import Highcharts from "highcharts/highstock";
@@ -8,6 +8,7 @@ import MapChart from "./components/MapChart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import {getData} from './actions/coronaActions'
 // Load Highcharts modules
 require("highcharts/indicators/indicators")(Highcharts);
 require("highcharts/indicators/pivot-points")(Highcharts);
@@ -20,8 +21,13 @@ function App() {
   // state is redux store
   const state = useSelector((state)=>state.corona);
 
+  // this is like mapDispatchToProps and passing to connect()
+  const dispatch = useDispatch();
+
   const fetchData = (buttonType)=>{
-    // some of the action function ....
+    dispatch(getData({
+      buttonType
+    }))
   }
   return (
     <div className="App">
