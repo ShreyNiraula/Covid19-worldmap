@@ -9,11 +9,6 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import {getData} from './actions/coronaActions'
-// Load Highcharts modules
-require("highcharts/indicators/indicators")(Highcharts);
-require("highcharts/indicators/pivot-points")(Highcharts);
-require("highcharts/indicators/macd")(Highcharts);
-require("highcharts/modules/exporting")(Highcharts);
 require("highcharts/modules/map")(Highcharts);
 
 function App() {

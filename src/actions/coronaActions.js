@@ -10,6 +10,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
     var color='';
     var subtitle='';
     var name='';
+    var onclick=null;
     const resp = await Axios.get(`https://api.covid19api.com/summary`);
     resp.data.Countries.forEach((country) => {
 
@@ -22,6 +23,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         color='blue';
         subtitle='Total Number of Cases';
         name='Total cases';
+        onclick = ()=>{console.log('clicked', country.Country)}
 
       } else if (buttonType === "deaths") {
         subarr.push(country.CountryCode.toLowerCase());
@@ -45,9 +47,6 @@ export const getData = ({ buttonType }) => async (dispatch) => {
     console.log('col', color);
     console.log('sub', subtitle);
     
-
-
-
     dispatch({
       type: "CORONA_SUCCESSFUL",
       payload: {
@@ -55,7 +54,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         color,
         subtitle,
         name,
-        // maxCases
+        onclick,
       },
     });
   } catch (e) {

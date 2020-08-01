@@ -1,14 +1,53 @@
 import mapData from '../mapData/mapData'
 const mapOptions = {
-     
+    title: {
+        text: 'Worldwise Corona Cases'
+    },
+    subtitle: {
+        text: 'Worldwise totalcases, current infected counts and total deaths till now.'
+    },
+    mapNavigation: {
+        enabled: true,
+        buttonOptions: {
+            verticalAlign: 'bottom'
+        }
+    },
+    colorAxis: {
+        type:'logarithm',
+        min: 0,
+    },
+    tooltip: {
+        pointFormat: '{point.name}: {point.value}<br><span style="color:gray;font-size:9px">Click for detail</span>'
+    },
     series: [{
         mapData: mapData,   //static data
+        name: 'Total Corona Cases', // highlighted text when hovered on any country
         states: {
+            // select: {
+            //     color: 'green',
+            //     borderColor: 'black',
+            //     dashStyle: 'shortdot'
+            // },
             hover: {
                 color: 'red'
             }
         },
-        name: 'Total Corona Cases', // highlighted text when hovered on any country
+        point: {
+            events: {
+                // On click, look for a detailed map
+                click: function () {
+                    return null;
+                }
+                // click: function () {
+                //     var key = this.key;
+                //     $('#mapDropdown option').each(function () {
+                //         if (this.value === 'countries/' + key.substr(0, 2) + '/' + key + '-all.js') {
+                //             $('#mapDropdown').val(this.value).change();
+                //         }
+                //     });
+                // }
+            }
+        },
         dataLabels: {
             enabled: true,
             format: '{point.name}'
@@ -229,26 +268,7 @@ const mapOptions = {
             ['kg', 211],
             ['np', 210]
         ]
+        // mapChart.get('us').select();
     }],
-    title: {
-        text: 'Worldwise Corona Cases'
-    },
-    subtitle: {
-        text: 'Worldwise totalcases, current infected counts and total deaths till now.'
-    },
-
-    mapNavigation: {
-        enabled: true,
-        buttonOptions: {
-            verticalAlign: 'bottom'
-        }
-    },
-  // no that much differences
-    colorAxis: {
-        min: 0,
-        color:'green'
-    },
   }
-  
-
 export default mapOptions;
