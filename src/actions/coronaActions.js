@@ -1,5 +1,41 @@
 import Axios from "axios";
 
+export const getDataInitial = () => async (dispatch)=>{
+  try {
+    dispatch({
+      type: "CORONA_WAITING",
+    });
+
+    const countryWise = [];
+    const resp = await Axios.get(`https://api.covid19api.com/summary`);
+    resp.data.Countries.forEach((country) => {
+        var subarr = [];
+        subarr.push(country.CountryCode.toLowerCase());
+        subarr.push(country.TotalDeaths);
+        countryWise.push(subarr);
+
+        onclick = ()=>{console.log('clicked', country.Country)}
+      })
+
+    console.log('coun', countryWise);
+    
+    dispatch({
+      type: "CORONA_SUCCESSFUL",
+      payload: {
+        countryWise,
+        color : 'red',
+        subtitle:'Total Death Counts',
+        name :'Total Deaths',
+        onclick
+      },
+    });
+  } catch (e) {
+    dispatch({
+      type: "CORONA_REJECTED",
+    });
+  }
+}
+// getData when button of specific typed
 export const getData = ({ buttonType }) => async (dispatch) => {
   try {
     dispatch({

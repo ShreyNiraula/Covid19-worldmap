@@ -35,7 +35,7 @@ export const coronaReducers = (state = initialState, action) => {
               point: {
                 events: {
                   click: function () {
-                    window.location.href = 'https://en.wikipedia.org/wiki/' + this.name;
+                    window.location.href = 'http://localhost:3000/' + this.name;
                     // const resp = await Axios.get(`https://api.covid19api.com/summary`);
                 }
                 },

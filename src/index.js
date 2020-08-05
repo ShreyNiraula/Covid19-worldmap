@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useSelector, useDispatch } from "react-redux";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import {store} from './store'
+import {getDataInitial} from './actions/coronaActions';
+
+
+const dispatch = useDispatch(
+  getDataInitial()
+  );
+
 ReactDOM.render(
   <Provider store ={store}>
     <App />
