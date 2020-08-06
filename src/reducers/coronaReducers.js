@@ -1,6 +1,6 @@
 import mapOptions from "../mapOptions/mapOptions";
 import mapData from "../mapData/mapData";
-import $ from "jquery";
+// import $ from "jquery";
 
 const initialState = {
   isLoading: false,

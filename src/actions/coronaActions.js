@@ -1,5 +1,6 @@
 import Axios from "axios";
 
+
 export const getData = ({ buttonType }) => async (dispatch) => {
   try {
     dispatch({
@@ -16,7 +17,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
 
       var subarr = [];
 
-      if (buttonType === "cases") {
+      if (buttonType === "cases" || buttonType === "initial") {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalConfirmed);
         countryWise.push(subarr);
@@ -25,7 +26,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         name='Total cases';
         onclick = ()=>{console.log('clicked', country.Country)}
 
-      } else if (buttonType === "deaths") {
+      } else if (buttonType === "deaths" ) {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalDeaths);
         countryWise.push(subarr);
