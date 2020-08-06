@@ -3,7 +3,9 @@ import React from 'react'
 const Header = () => {
     return (
         <>
-        <h1>Covid-19 Global Visualization</h1>
+        
+            <span id="covid"> Covid-19 </span> <span id="global"> Global </span> <span id="visualization"> Visualization</span> 
+        
         </>
     )
 }

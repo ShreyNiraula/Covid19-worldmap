@@ -4,48 +4,125 @@
   padding:0;
   font-size: 14px;
 }
-.App{
+/* .App{
   width:100%;
   margin:0 auto
-} 
+}  */
 .header{
-    background-color:#3e3e3e;
+    background-color:#222222;
     color:white;
-    padding:2em;
+    padding:2.5em;
     text-align:center;
-    
+    margin-bottom: 3em; 
+}
+.header span{
+  font-size: 2.5em;
+}
+.header #covid{
+  color:rgb(117, 169, 236)
+}
+.header #global{
+  color:rgb(236, 100, 152)
+}
+.header #visualization{
+  color:rgb(116, 235, 199)
 }
 .btn-grp{
+  display: flex;
   text-align: center;
-  margin: 1em 0em;
+  justify-content: space-evenly;
+  margin-bottom: 2em;
   
 }
 .btn{
+  border-color: none;
   border-radius: 4px;
-  padding:0.5em;
+  /* width:15%; */
+  padding:1em;
   margin:0 1em;
 }
-#btn-cases:hover{
+#btn-cases{
   background-color:blue;
   color: white;
 }
-#btn-deaths:hover{
+#btn-cases:hover{
+  background-color:#d6d6d6;
+  color:rgb(38, 156, 253);
+}
+#btn-deaths{
   background-color:red;
   color: white;
 }
-#btn-recovered:hover{
+#btn-deaths:hover{
+  background-color:#d6d6d6;
+  color:rgb(226, 81, 44);
+}
+#btn-recovered{
   background-color:green;
   color: white;
 }
+#btn-recovered:hover{
+  background-color:#d6d6d6;
+  color:rgb(33, 75, 51);
+}
 .map-wrapper{
-  min-height: 80vh;
+  /* background-color: coral; */
+  /* height: 20vh; */
   padding:0.2em;
   margin: 1em;
 }
 .footer{
+  padding-block-start: 4em;
+  min-height: 8vh;
   background-color:black;
   color:white;
   padding:2em;
   text-align:center;
 }
 
+@import 'https://fonts.googleapis.com/css?family=Unica+One';
+.highcharts-title, .highcharts-subtitle {
+  text-transform: uppercase;
+}
+
+.highcharts-tooltip text {
+  fill: #F0F0F0;
+}
+
+.highcharts-range-selector-buttons text {
+  fill: silver;
+}
+
+.highcharts-yaxis-grid {
+  stroke-width: 1px;
+}
+
+.highcharts-axis-labels, .highcharts-axis-title {
+  fill: #E0E0E3;
+}
+
+.highcharts-navigator .highcharts-navigator-handle {
+  fill: #666;
+  stroke: #aaa;
+}
+
+.highcharts-navigator .highcharts-navigator-outline {
+  stroke: #CCC;
+}
+
+.highcharts-navigator .highcharts-navigator-xaxis .highcharts-grid-line {
+  stroke: #505053;
+}
+
+.highcharts-scrollbar .highcharts-scrollbar-rifles {
+  stroke: #fff;
+}
+
+.highcharts-scrollbar .highcharts-scrollbar-button {
+  stroke: #606063;
+  fill: #606063;
+}
+
+.highcharts-scrollbar .highcharts-scrollbar-arrow {
+  fill: #CCC;
+}

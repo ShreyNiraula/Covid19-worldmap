@@ -1,20 +1,28 @@
-import mapOptions from "../mapOptions/mapOptions";
+import mapOptions from "../Options/mapOptions";
 import mapData from "../mapData/mapData";
+import {store} from '../store';
+import {useDispatch} from 'react-redux'
 // import $ from "jquery";
+import {getEachCountry} from '../actions/coronaActions'
 
 const initialState = {
   isLoading: false,
-  mapOptions: mapOptions,
+  // countryName:null,
+  mapOptions: mapOptions
 };
 export const coronaReducers = (state = initialState, action) => {
+  // const dispatch = useDispatch()
   switch (action.type) {
     case "CORONA_WAITING":
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true,
+        //  country:action.payload.name 
+        };
 
     case "CORONA_SUCCESSFUL":
       return {
         ...state,
         isLoading: false,
+        // country:action.payload.name ,
 
         mapOptions: {
           ...state,
@@ -35,8 +43,9 @@ export const coronaReducers = (state = initialState, action) => {
               point: {
                 events: {
                   click: function () {
-                    window.location.href = 'https://en.wikipedia.org/wiki/' + this.name;
-                    // const resp = await Axios.get(`https://api.covid19api.com/summary`);
+                    const country = this.name
+                    const buttonType = action.payload.buttonType
+                    store.dispatch(getEachCountry({country, buttonType}))
                 }
                 },
               },
@@ -62,7 +71,9 @@ export const coronaReducers = (state = initialState, action) => {
       };
 
     case "CORONA_REJECTED":
-      return { ...state, isLoading: false };
+      return { ...state, isLoading: false, 
+        // country:action.payload.name 
+       };
 
     default:
       return state;

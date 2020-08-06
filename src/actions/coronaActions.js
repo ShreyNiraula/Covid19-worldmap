@@ -1,5 +1,43 @@
 import Axios from "axios";
 
+export const getEachCountry = ({ country, buttonType }) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "COUNTRY_LOADING",
+    });
+    // returns as array
+    const resp = await Axios.get(
+      `https://api.covid19api.com/dayone/country/${country}/status/${buttonType}`
+    );
+    const yValue = [];
+    const xValue = [];
+    // const nation  = `${country}`;
+
+    // console.log('nation   '+ nation);
+    
+
+    // loop through each array
+    resp.data.forEach((item) => {
+      yValue.push(item.Cases);
+      xValue.push(item.Date);
+    });
+
+    console.log(yValue);
+    dispatch({
+      type: "COUNTRY_SUCCESSFUL",
+      payload: {
+        xValue,
+        yValue,
+        // nation,
+        title: country,
+        buttonType:buttonType
+        // subtitle:`Plot of ${buttonType} cases of ${country} ${buttonType} `,
+      },
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const getData = ({ buttonType }) => async (dispatch) => {
   try {
@@ -8,46 +46,45 @@ export const getData = ({ buttonType }) => async (dispatch) => {
     });
 
     const countryWise = [];
-    var color='';
-    var subtitle='';
-    var name='';
-    var onclick=null;
+    var color = "";
+    var subtitle = "";
+    var name = "";
+    var onclick = null;
     const resp = await Axios.get(`https://api.covid19api.com/summary`);
     resp.data.Countries.forEach((country) => {
-
       var subarr = [];
 
       if (buttonType === "cases" || buttonType === "initial") {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalConfirmed);
         countryWise.push(subarr);
-        color='blue';
-        subtitle='Total Number of Cases';
-        name='Total cases';
-        onclick = ()=>{console.log('clicked', country.Country)}
-
-      } else if (buttonType === "deaths" ) {
+        color = "blue";
+        subtitle = "Total Number of Cases";
+        name = "Total cases";
+        onclick = () => {
+          console.log("clicked", country.Country);
+        };
+      } else if (buttonType === "deaths") {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalDeaths);
         countryWise.push(subarr);
-        color='red';
-        subtitle='Total Death Counts';
-        name ='Total Deaths'
-
+        color = "red";
+        subtitle = "Total Death Counts";
+        name = "Total Deaths";
       } else {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalRecovered);
         countryWise.push(subarr);
-        color='green';
-        subtitle='Total Recovered Counts';
-        name='Total Recovered';
+        color = "green";
+        subtitle = "Total Recovered Counts";
+        name = "Total Recovered";
       }
     });
 
-    console.log('coun', countryWise);
-    console.log('col', color);
-    console.log('sub', subtitle);
-    
+    console.log("coun", countryWise);
+    console.log("col", color);
+    console.log("sub", subtitle);
+
     dispatch({
       type: "CORONA_SUCCESSFUL",
       payload: {
@@ -56,6 +93,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         subtitle,
         name,
         onclick,
+        buttonType,
       },
     });
   } catch (e) {
