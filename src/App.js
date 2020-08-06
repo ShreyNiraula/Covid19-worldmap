@@ -20,9 +20,7 @@ function App() {
   const dispatch = useDispatch();
 
   const fetchData = (buttonType)=>{
-    dispatch(getData({
-      buttonType
-    }))
+    dispatch(getData({buttonType}))
   }
   return (
     <div className="App">
