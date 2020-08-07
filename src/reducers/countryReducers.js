@@ -39,7 +39,10 @@ export const countryReducers = (state = initialState, action) => {
           //    text: action.payload.subtitle
           // },
           xAxis:{
-
+            title:{
+              text: "Days"
+            },
+            categories:action.payload.xValue
           },
           series:[
             {

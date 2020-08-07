@@ -18,6 +18,9 @@ export const countryChartOptions = {
   },
 
   xAxis: {
+      title:{
+          text:'Days'
+      },
       accessibility: {
           rangeDescription: `Corona Case`
       }
