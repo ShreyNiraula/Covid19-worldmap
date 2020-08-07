@@ -1,24 +1,21 @@
 import Axios from "axios";
 
-export const getEachCountry = ({ country, buttonType }) => async (dispatch) => {
+export const getEachCountry = (country, buttonType) => async (dispatch) => {
   try {
     dispatch({
       type: "COUNTRY_LOADING",
     });
     // returns as array
+    console.log(`https://api.covid19api.com/total/dayone/country/${country}/status/${buttonType}`)
     const resp = await Axios.get(
       `https://api.covid19api.com/total/dayone/country/${country}/status/${buttonType}`
     );
     const yValue = [];
     const xValue = [];
-    // const nation  = `${country}`;
 
-    // console.log('nation   '+ nation);
-
-    // loop through each array
     resp.data.forEach((item) => {
       yValue.push(item.Cases);
-      // xValue.push(item.Date)
+
       // format the date
       // split on T and then split on 2020- to extract only months and days
       xValue.push(item.Date.split("T")[0].split("2020-")[1]); //'2020-02-28T00:00:00Z'
@@ -51,7 +48,6 @@ export const getData = ({ buttonType }) => async (dispatch) => {
     var color = "";
     var subtitle = "";
     var name = "";
-    var onclick = null;
     const resp = await Axios.get(`https://api.covid19api.com/summary`);
     resp.data.Countries.forEach((country) => {
       var subarr = [];
@@ -66,9 +62,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         color = "blue";
         subtitle = "Total Number of Cases";
         name = "Total cases";
-        onclick = () => {
-          console.log("clicked", country.Country);
-        };
+
       } else if (buttonType === "deaths") {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalDeaths);
@@ -76,6 +70,7 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         color = "red";
         subtitle = "Total Death Counts";
         name = "Total Deaths";
+
       } else {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalRecovered);
@@ -86,10 +81,6 @@ export const getData = ({ buttonType }) => async (dispatch) => {
       }
     });
 
-    console.log("coun", countryWise);
-    console.log("col", color);
-    console.log("sub", subtitle);
-
     dispatch({
       type: "CORONA_SUCCESSFUL",
       payload: {
@@ -97,8 +88,8 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         color,
         subtitle,
         name,
-        onclick,
         buttonType,
+
       },
     });
   } catch (e) {

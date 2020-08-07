@@ -8,7 +8,7 @@ import { getEachCountry } from "../actions/coronaActions";
 const initialState = {
   isLoading: false,
   isOpen: false,
-  // currentCountry:null,
+  currentCountry:false,
   countryChartOptions: countryChartOptions,
 };
 
@@ -16,19 +16,20 @@ const initialState = {
 export const countryReducers = (state = initialState, action) => {
   switch (action.type) {
     case "COUNTRY_LOADING":
+      // currentCountry = action.pyload.title.toLowerCase()
       return { ...state, 
         isLoading: true, 
         isOpen:false ,
-        // currentCountry:action.payload.title
-      
+        currentCountry:action.payload.title.toLowerCase()
       };
 
     case "COUNTRY_SUCCESSFUL":
+      // currentCountry = action.pyload.title.toLowerCase()
       return {
         ...state,
         isLoading: false,
         isOpen:true,
-        // currentCountry:action.payload.title,
+        currentCountry:action.payload.title.toLowerCase(),
 
         countryChartOptions: {
           ...state,

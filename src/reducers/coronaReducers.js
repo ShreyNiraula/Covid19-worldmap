@@ -10,6 +10,8 @@ const initialState = {
   // countryName:null,
   mapOptions: mapOptions
 };
+
+
 export const coronaReducers = (state = initialState, action) => {
   // const dispatch = useDispatch()
   switch (action.type) {
@@ -23,7 +25,6 @@ export const coronaReducers = (state = initialState, action) => {
         ...state,
         isLoading: false,
         // country:action.payload.name ,
-
         mapOptions: {
           ...state,
           series: [
@@ -44,9 +45,8 @@ export const coronaReducers = (state = initialState, action) => {
                 events: {
                   click: function () {
                     const country = this.name
-                    console.log('initial nation '+ country)
                     const buttonType = action.payload.buttonType
-                    store.dispatch(getEachCountry({country, buttonType}))
+                    store.dispatch(getEachCountry(country, buttonType))
                 }
                 },
               },

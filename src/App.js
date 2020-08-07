@@ -20,7 +20,7 @@ function App() {
   // this is like mapStateToProps and passing to connect()
   // state is redux store
   const state = useSelector((state)=>state.corona);
-  const countryState = useSelector((state)=>state.countryCorona);
+  const countryState = useSelector((countryState)=>countryState.countryCorona);
 
   // this is like mapDispatchToProps and passing to connect()
   const dispatch = useDispatch();
@@ -28,10 +28,14 @@ function App() {
   const fetchData = (buttonType)=>{
     dispatch(getData({buttonType}))
   }
+
   const fetchChart = (buttonType)=>{
     var country = countryState.currentCountry
-    dispatch(getEachCountry({country, buttonType}))
     console.log(buttonType+' pressed in chart')
+    console.log(countryState.currentCountry)
+
+    dispatch(getEachCountry(country, buttonType))
+    
   }
   return (
     <div className="App">
@@ -40,7 +44,7 @@ function App() {
       </div>
       {state.isLoading && <p>Loading...</p>}
       <div className="btn-grp" >
-        <button onClick={()=>fetchData('confirmed')} className='btn' id='btn-cases'>Cases</button>
+        <button onClick={()=>fetchData('confirmed')} className='btn' id='btn-cases'>Confirmed</button>
         <button onClick={()=>fetchData('deaths')} className='btn' id='btn-deaths'>Deaths</button>
         <button onClick={()=>fetchData('recovered')} className='btn' id='btn-recovered'>Recovered</button>
       </div>
@@ -51,7 +55,7 @@ function App() {
       {countryState.isOpen && 
       <div className="chart-area">
         <div className="chart-btn-grp">
-          <button onClick={()=>fetchChart('confirmed')} className='btn' id='btn-cases'>Cases</button>
+          <button onClick={()=>fetchChart('confirmed')} className='btn' id='btn-cases'>Confirmed</button>
           <button onClick={()=>fetchChart('deaths')} className='btn' id='btn-deaths'>Deaths</button>
           <button onClick={()=>fetchChart('recovered')} className='btn' id='btn-recovered'>Recovered</button>
         </div>
