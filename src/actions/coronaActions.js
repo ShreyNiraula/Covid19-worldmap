@@ -14,17 +14,16 @@ export const getEachCountry = ({ country, buttonType }) => async (dispatch) => {
     // const nation  = `${country}`;
 
     // console.log('nation   '+ nation);
-    
 
     // loop through each array
     resp.data.forEach((item) => {
       yValue.push(item.Cases);
       // xValue.push(item.Date)
-      // format the date 
+      // format the date
       // split on T and then split on 2020- to extract only months and days
-      xValue.push(item.Date.split('T')[0].split('2020-')[1])  //'2020-02-28T00:00:00Z'
+      xValue.push(item.Date.split("T")[0].split("2020-")[1]); //'2020-02-28T00:00:00Z'
     });
-    console.log(yValue)
+    console.log(yValue);
     console.log(xValue);
     dispatch({
       type: "COUNTRY_SUCCESSFUL",
@@ -33,7 +32,7 @@ export const getEachCountry = ({ country, buttonType }) => async (dispatch) => {
         yValue,
         // nation,
         title: country,
-        buttonType:buttonType
+        buttonType: buttonType,
         // subtitle:`Plot of ${buttonType} cases of ${country} ${buttonType} `,
       },
     });
@@ -57,10 +56,13 @@ export const getData = ({ buttonType }) => async (dispatch) => {
     resp.data.Countries.forEach((country) => {
       var subarr = [];
 
-      if (buttonType === "cases" || buttonType === "initial") {
+      if (buttonType === "confirmed" || buttonType === "initial") {
         subarr.push(country.CountryCode.toLowerCase());
         subarr.push(country.TotalConfirmed);
         countryWise.push(subarr);
+
+        // make buttonType = totalcases for initial case
+        buttonType = "confirmed";
         color = "blue";
         subtitle = "Total Number of Cases";
         name = "Total cases";

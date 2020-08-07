@@ -44,6 +44,7 @@ export const coronaReducers = (state = initialState, action) => {
                 events: {
                   click: function () {
                     const country = this.name
+                    console.log('initial nation '+ country)
                     const buttonType = action.payload.buttonType
                     store.dispatch(getEachCountry({country, buttonType}))
                 }

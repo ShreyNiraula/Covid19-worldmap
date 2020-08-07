@@ -40,7 +40,7 @@ function App() {
       </div>
       {state.isLoading && <p>Loading...</p>}
       <div className="btn-grp" >
-        <button onClick={()=>fetchData('cases')} className='btn' id='btn-cases'>Cases</button>
+        <button onClick={()=>fetchData('confirmed')} className='btn' id='btn-cases'>Cases</button>
         <button onClick={()=>fetchData('deaths')} className='btn' id='btn-deaths'>Deaths</button>
         <button onClick={()=>fetchData('recovered')} className='btn' id='btn-recovered'>Recovered</button>
       </div>
@@ -51,7 +51,7 @@ function App() {
       {countryState.isOpen && 
       <div className="chart-area">
         <div className="chart-btn-grp">
-          <button onClick={()=>fetchChart('cases')} className='btn' id='btn-cases'>Cases</button>
+          <button onClick={()=>fetchChart('confirmed')} className='btn' id='btn-cases'>Cases</button>
           <button onClick={()=>fetchChart('deaths')} className='btn' id='btn-deaths'>Deaths</button>
           <button onClick={()=>fetchChart('recovered')} className='btn' id='btn-recovered'>Recovered</button>
         </div>
