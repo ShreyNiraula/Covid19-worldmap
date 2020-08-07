@@ -29,14 +29,14 @@ function App() {
     dispatch(getData({buttonType}))
   }
 
-  const fetchChart = (buttonType)=>{
-    var country = countryState.currentCountry
-    console.log(buttonType+' pressed in chart')
-    console.log(countryState.currentCountry)
+  // const fetchChart = (buttonType)=>{
+  //   var country = countryState.currentCountry
+  //   console.log(buttonType+' pressed in chart')
+  //   console.log(countryState.currentCountry)
 
-    dispatch(getEachCountry(country, buttonType))
+  //   dispatch(getEachCountry(country, buttonType))
     
-  }
+  // }
   return (
     <div className="App">
       <div className="header">
@@ -54,11 +54,11 @@ function App() {
       {countryState.isLoading && <p>Chart Loading</p>}
       {countryState.isOpen && 
       <div className="chart-area">
-        <div className="chart-btn-grp">
+        {/* <div className="chart-btn-grp">
           <button onClick={()=>fetchChart('confirmed')} className='btn' id='btn-cases'>Confirmed</button>
           <button onClick={()=>fetchChart('deaths')} className='btn' id='btn-deaths'>Deaths</button>
           <button onClick={()=>fetchChart('recovered')} className='btn' id='btn-recovered'>Recovered</button>
-        </div>
+        </div> */}
         <HighchartsReact highcharts={Highcharts} options={countryState.countryChartOptions} />
       </div>
       }

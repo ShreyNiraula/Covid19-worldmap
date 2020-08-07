@@ -6,7 +6,6 @@ export const getEachCountry = (country, buttonType) => async (dispatch) => {
       type: "COUNTRY_LOADING",
     });
     // returns as array
-    console.log(`https://api.covid19api.com/total/dayone/country/${country}/status/${buttonType}`)
     const resp = await Axios.get(
       `https://api.covid19api.com/total/dayone/country/${country}/status/${buttonType}`
     );
@@ -20,14 +19,11 @@ export const getEachCountry = (country, buttonType) => async (dispatch) => {
       // split on T and then split on 2020- to extract only months and days
       xValue.push(item.Date.split("T")[0].split("2020-")[1]); //'2020-02-28T00:00:00Z'
     });
-    console.log(yValue);
-    console.log(xValue);
     dispatch({
       type: "COUNTRY_SUCCESSFUL",
       payload: {
         xValue,
         yValue,
-        // nation,
         title: country,
         buttonType: buttonType,
         // subtitle:`Plot of ${buttonType} cases of ${country} ${buttonType} `,
@@ -89,7 +85,6 @@ export const getData = ({ buttonType }) => async (dispatch) => {
         subtitle,
         name,
         buttonType,
-
       },
     });
   } catch (e) {
