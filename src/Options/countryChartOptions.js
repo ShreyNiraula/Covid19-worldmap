@@ -1,10 +1,10 @@
 export const countryChartOptions = {
   chart: {
-    type: 'spline'
+    type: "spline",
   },
 
   title: {
-      text: 'Chart'
+    text: "Chart",
   },
 
   // subtitle: {
@@ -12,39 +12,40 @@ export const countryChartOptions = {
   // },
 
   yAxis: {
-      title: {
-          text: 'Date'
-      }
+    title: {
+      text: "Date",
+    },
   },
 
   xAxis: {
-      title:{
-          text:'Days'
-      },
-      accessibility: {
-          rangeDescription: `Corona Case`
-      }
+    title: {
+      text: "Days",
+    },
+    accessibility: {
+      rangeDescription: `Corona Case`,
+    },
   },
 
   legend: {
-      layout: 'vertical',
-      align: 'right',
-      verticalAlign: 'middle'
+    layout: "vertical",
+    align: "right",
+    verticalAlign: "middle",
   },
 
   plotOptions: {
-      series: {
-          label: {
-              connectorAllowed: false
-          },
-          
-      }
+    series: {
+      label: {
+        connectorAllowed: false,
+      },
+    },
   },
 
-  series: [{
-      name: 'Cases',
-      data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-  },],
+  series: [
+    {
+      name: "Cases",
+      data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175],
+    },
+  ],
 
   // responsive: {
   //     rules: [{
@@ -60,5 +61,4 @@ export const countryChartOptions = {
   //         }
   //     }]
   // }
-
-}
+};

@@ -1,29 +1,37 @@
 import mapOptions from "../Options/mapOptions";
 import mapData from "../mapData/mapData";
-import {store} from '../store';
-import {useDispatch} from 'react-redux'
-// import $ from "jquery";
-import {getEachCountry} from '../actions/coronaActions'
+import { store } from "../store";
+import { useDispatch } from "react-redux";
+import { getEachCountry } from "../actions/coronaActions";
 
 const initialState = {
+  mapOptions: mapOptions,
+  globalStatus: {},
   isLoading: false,
-  // countryName:null,
-  mapOptions: mapOptions
+  buttonType: "initial",
+  topCountries: [],
+  name: "",
 };
-
 
 export const coronaReducers = (state = initialState, action) => {
   // const dispatch = useDispatch()
   switch (action.type) {
     case "CORONA_WAITING":
-      return { ...state, isLoading: true,
-        //  country:action.payload.name 
-        };
+      return {
+        ...state,
+        isLoading: true,
+        //  country:action.payload.name
+      };
 
     case "CORONA_SUCCESSFUL":
       return {
         ...state,
+        buttonType: action.payload.buttonType,
+        globalStatus: action.payload.globalStatus,
+        topCountries: action.payload.topCountries,
         isLoading: false,
+        name: action.payload.name,
+
         // country:action.payload.name ,
         mapOptions: {
           ...state,
@@ -44,10 +52,10 @@ export const coronaReducers = (state = initialState, action) => {
               point: {
                 events: {
                   click: function () {
-                    const country = this.name
-                    const buttonType = action.payload.buttonType
-                    store.dispatch(getEachCountry(country, buttonType))
-                }
+                    const country = this.name;
+                    const buttonType = action.payload.buttonType;
+                    store.dispatch(getEachCountry(country, buttonType));
+                  },
                 },
               },
               data: action.payload.countryWise,
@@ -72,9 +80,11 @@ export const coronaReducers = (state = initialState, action) => {
       };
 
     case "CORONA_REJECTED":
-      return { ...state, isLoading: false, 
-        // country:action.payload.name 
-       };
+      return {
+        ...state,
+        isLoading: false,
+        // country:action.payload.name
+      };
 
     default:
       return state;

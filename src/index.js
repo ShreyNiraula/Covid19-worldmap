@@ -2,10 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 // import Axios from "axios";
 
-import {useSelector, useDispatch} from 'react-redux';
-import {getData} from './actions/coronaActions'
-
-
+import { useSelector, useDispatch } from "react-redux";
+import { getWholeData, getGlobalData } from "./actions/coronaActions";
 
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -14,12 +12,9 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
-
-
-
-
-const buttonType = 'initial'
-store.dispatch(getData({buttonType}))
+const buttonType = "initial";
+store.dispatch(getWholeData({ buttonType }));
+// store.dispatch(getGlobalData());
 ReactDOM.render(
   <Provider store={store}>
     <App />

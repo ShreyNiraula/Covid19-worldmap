@@ -1,92 +1,109 @@
-*{
+* {
   box-sizing: border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   font-size: 14px;
 }
 /* .App{
   width:100%;
   margin:0 auto
 }  */
-.header{
-    background-color:#222222;
-    color:white;
-    padding:2.5em;
-    text-align:center;
-    margin-bottom: 3em; 
+.header {
+  background-color: #222222;
+  color: white;
+  padding: 2.5em;
+  text-align: center;
+  margin-bottom: 3em;
 }
-.header span{
+.header span {
   font-size: 2.5em;
 }
-.header #covid{
-  color:rgb(117, 169, 236)
+.header #covid {
+  color: rgb(117, 169, 236);
 }
-.header #global{
-  color:rgb(236, 100, 152)
+.header #global {
+  color: rgb(236, 100, 152);
 }
-.header #visualization{
-  color:rgb(116, 235, 199)
+.header #visualization {
+  color: rgb(116, 235, 199);
 }
-.btn-grp{
+.btn-grp {
   display: flex;
   text-align: center;
   justify-content: space-evenly;
   margin-bottom: 2em;
-  
 }
-.btn{
+.btn {
   border-color: none;
   border-radius: 4px;
   /* width:15%; */
-  padding:1em;
-  margin:0 1em;
+  padding: 1em;
+  margin: 0 1em;
 }
-#btn-cases{
-  background-color:blue;
+#btn-cases {
+  background-color: blue;
   color: white;
 }
-#btn-cases:hover{
-  background-color:#d6d6d6;
-  color:rgb(38, 156, 253);
+#btn-cases:hover {
+  background-color: #d6d6d6;
+  color: rgb(38, 156, 253);
 }
-#btn-deaths{
-  background-color:red;
+#btn-deaths {
+  background-color: red;
   color: white;
 }
-#btn-deaths:hover{
-  background-color:#d6d6d6;
-  color:rgb(226, 81, 44);
+#btn-deaths:hover {
+  background-color: #d6d6d6;
+  color: rgb(226, 81, 44);
 }
-#btn-recovered{
-  background-color:green;
+#btn-recovered {
+  background-color: green;
   color: white;
 }
-#btn-recovered:hover{
-  background-color:#d6d6d6;
-  color:rgb(33, 75, 51);
+#btn-recovered:hover {
+  background-color: #d6d6d6;
+  color: rgb(33, 75, 51);
 }
-.map-wrapper{
-  /* background-color: coral; */
-  /* height: 20vh; */
-  padding:0.2em;
-  margin: 1em;
+.world-status-area {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: orange;
 }
-.footer{
+
+.map-wrapper {
+  padding: 0.1rem;
+  flex: 2;
+  background-color: teal;
+}
+.glance {
+  flex: 1;
+  background-color: #606063;
+}
+.footer {
   padding-block-start: 4em;
   min-height: 8vh;
-  background-color:black;
-  color:white;
-  padding:2em;
-  text-align:center;
+  background-color: black;
+  color: white;
+  padding: 2em;
+  text-align: center;
 }
 
-@import 'https://fonts.googleapis.com/css?family=Unica+One';
-.highcharts-title, .highcharts-subtitle {
-  text-transform: uppercase;
+@import "https://fonts.googleapis.com/css?family=Unica+One";
+.highcharts-area {
+  width: 100%;
+  height: 20px;
+  border: 0.2rem red solid;
 }
+.highcharts-background {
+  /* fill: #222222; */
+}
+/* .highcharts-title,
+.highcharts-subtitle {
+  text-transform: uppercase;
+} */
 
 .highcharts-tooltip text {
-  fill: #F0F0F0;
+  fill: #f0f0f0;
 }
 
 .highcharts-range-selector-buttons text {
@@ -97,8 +114,9 @@
   stroke-width: 1px;
 }
 
-.highcharts-axis-labels, .highcharts-axis-title {
-  fill: #E0E0E3;
+.highcharts-axis-labels,
+.highcharts-axis-title {
+  fill: #e0e0e3;
 }
 
 .highcharts-navigator .highcharts-navigator-handle {
@@ -107,7 +125,7 @@
 }
 
 .highcharts-navigator .highcharts-navigator-outline {
-  stroke: #CCC;
+  stroke: #ccc;
 }
 
 .highcharts-navigator .highcharts-navigator-xaxis .highcharts-grid-line {
@@ -124,5 +142,11 @@
 }
 
 .highcharts-scrollbar .highcharts-scrollbar-arrow {
-  fill: #CCC;
+  fill: #ccc;
+}
+
+/* for nepal */
+.highcharts-key-np {
+  background-color: red;
+  color: red;
 }
