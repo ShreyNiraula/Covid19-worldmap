@@ -12,15 +12,15 @@ function DashBoard() {
     .sort(function (a, b) {
       return b[1] - a[1];
     })
-    .slice(0, 11);
+    .slice(0, 10);
 
   return (
     <div className="global-status-wrapper">
+      <h2>Global Status</h2>
       <div className="global-status">
-        <h2>Global Status</h2>
-        <h6>Total Cases</h6>
+        <h3>Total Cases</h3>
         <p>
-          <strong>Total Confirmed Cases: </strong>
+          <b>Total Confirmed Cases: </b>
           {globalStatus.TotalConfirmed}
         </p>
         <p>
@@ -31,7 +31,7 @@ function DashBoard() {
           <strong>Total Recovered Cases: </strong>
           {globalStatus.TotalRecovered}
         </p>
-        <h6>New Cases</h6>
+        <h4>New Cases</h4>
         <p>
           <strong>New Confirmed Cases: </strong>
           {globalStatus.NewConfirmed}
@@ -47,10 +47,12 @@ function DashBoard() {
       </div>
       <hr />
       <div className="top-countries">
-        <h3>Top 50 countries by {buttonType} case</h3>
+        <h4>
+          Top {sortedtopCountries.length} countries by {buttonType} case
+        </h4>
         {sortedtopCountries.map((country) => (
           <li>
-            {country[0]}:{country[1]}
+            <b>{country[0]}</b>:{country[1]}
           </li>
         ))}
       </div>

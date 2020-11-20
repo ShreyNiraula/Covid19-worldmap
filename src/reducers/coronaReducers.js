@@ -2,7 +2,7 @@ import mapOptions from "../Options/mapOptions";
 import mapData from "../mapData/mapData";
 import { store } from "../store";
 import { useDispatch } from "react-redux";
-import { getEachCountry } from "../actions/coronaActions";
+import { getEachCountry, getCountryData } from "../actions/coronaActions";
 
 const initialState = {
   mapOptions: mapOptions,
@@ -54,6 +54,7 @@ export const coronaReducers = (state = initialState, action) => {
                   click: function () {
                     const country = this.name;
                     const buttonType = action.payload.buttonType;
+                    store.dispatch(getCountryData(country));
                     store.dispatch(getEachCountry(country, buttonType));
                   },
                 },

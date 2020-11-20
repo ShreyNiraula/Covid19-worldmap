@@ -3,7 +3,7 @@ import Axios from "axios";
 export const getEachCountry = (country, buttonType) => async (dispatch) => {
   try {
     dispatch({
-      type: "COUNTRY_LOADING",
+      type: "COUNTRY_CHART_LOADING",
     });
     // returns as array
     const resp = await Axios.get(
@@ -19,8 +19,9 @@ export const getEachCountry = (country, buttonType) => async (dispatch) => {
       // split on T and then split on 2020- to extract only months and days
       xValue.push(item.Date.split("T")[0].split("2020-")[1]); //'2020-02-28T00:00:00Z'
     });
+    console.log("xvalue", xValue);
     dispatch({
-      type: "COUNTRY_SUCCESSFUL",
+      type: "COUNTRY_CHART_SUCCESSFUL",
       payload: {
         xValue, // array of dates
         yValue, // array of counts (death, recovered or total)
@@ -31,33 +32,41 @@ export const getEachCountry = (country, buttonType) => async (dispatch) => {
     });
   } catch (e) {
     dispatch({
-      type: "COUNTRY_FAIL",
+      type: "COUNTRY_CHART_FAIL",
     });
     console.log(e);
   }
 };
-// export const getGlobalData = () => async (dispatch) => {
-//   dispatch({
-//     type: "GLOBAL_WAITING",
-//   });
 
-//   try {
-//     // destructuring twice and rename Global as global
-//     var {
-//       data: { Global: global },
-//     } = await Axios.get("https://api.covid19api.com/summary");
+export const getCountryData = (country) => async (dispatch) => {
+  try {
+    dispatch({
+      type: "COUNTRY_STATUS_LOADING",
+    });
 
-//     dispatch({
-//       type: "GLOBAL_SUCCESSFUL",
-//       payload: global,
-//     });
-//   } catch (err) {
-//     dispatch({
-//       type: "GLOBAL_FAILURE",
-//     });
-//     console.log(err);
-//   }
-// };
+    // const resp = await Axios.get(
+    //   `https://api.covid19api.com/dayone/country/${country}`
+    // );
+    const resp = await Axios.get(
+      `https://disease.sh/v3/covid-19/countries/${country}?yesterday=true&twoDaysAgo=false&strict=true`
+    );
+    console.log("format", resp.data);
+
+    dispatch({
+      type: "COUNTRY_STATUS_SUCCESSFUL",
+      payload: {
+        data: resp.data,
+        country: country,
+      },
+    });
+  } catch (err) {
+    dispatch({
+      type: "COUNTRY_STATUS_FAILURE",
+    });
+    console.log(err);
+  }
+};
+
 export const getWholeData = ({ buttonType }) => async (dispatch) => {
   try {
     // dispatch for the case of loading case, without any payload
@@ -76,7 +85,7 @@ export const getWholeData = ({ buttonType }) => async (dispatch) => {
     resp.data.Countries.forEach((country) => {
       var subarr = [];
       var subarrForTop = [];
-      console.log("countris:", country);
+      // console.log("countris:", country);
 
       if (buttonType === "confirmed" || buttonType === "initial") {
         subarr.push(country.CountryCode.toLowerCase());
@@ -115,8 +124,8 @@ export const getWholeData = ({ buttonType }) => async (dispatch) => {
         name = "Total Recovered";
       }
     });
-    console.log("countrywise", countryWise); // [{},{},...] where each {countryCode:, value:,}
-
+    // console.log("countrywise", countryWise); // [{},{},...] where each {countryCode:, value:,}
+    console.log("global status", globalStatus);
     dispatch({
       type: "CORONA_SUCCESSFUL",
       payload: {

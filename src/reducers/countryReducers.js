@@ -14,7 +14,7 @@ const initialState = {
 
 export const countryReducers = (state = initialState, action) => {
   switch (action.type) {
-    case "COUNTRY_LOADING":
+    case "COUNTRY_CHART_LOADING":
       return {
         ...state,
         isLoading: true,
@@ -22,7 +22,7 @@ export const countryReducers = (state = initialState, action) => {
         // currentCountry:action.payload.title.toLowerCase()
       };
 
-    case "COUNTRY_SUCCESSFUL":
+    case "COUNTRY_CHART_SUCCESSFUL":
       return {
         ...state,
         isLoading: false,
@@ -51,7 +51,7 @@ export const countryReducers = (state = initialState, action) => {
           ],
         },
       };
-    case "COUNTRY_FAIL":
+    case "COUNTRY_CHART_FAIL":
       return {
         ...state,
         isLoading: false,
