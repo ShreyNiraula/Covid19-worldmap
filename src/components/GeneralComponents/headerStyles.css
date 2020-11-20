@@ -1,0 +1,19 @@
+.header {
+  background-color: #222222;
+  color: white;
+  padding: 1.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.header span {
+  font-size: 2em;
+}
+.header #covid {
+  color: rgb(117, 169, 236);
+}
+.header #global {
+  color: rgb(236, 100, 152);
+}
+.header #visualization {
+  color: rgb(116, 235, 199);
+}

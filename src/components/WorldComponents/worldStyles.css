@@ -1,0 +1,26 @@
+.world-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.world-area-map {
+  padding: 0.1rem;
+  flex: 3;
+  width: 70%;
+}
+
+.world-area-status-wrapper {
+  flex: 1;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.world-area-status-wrapper .world-status {
+  padding: 0.2rem 0;
+}
+.world-area-status-wrapper .top-countries {
+  padding: 0.2rem 0;
+}
+.world-area-status-wrapper .top-countries li {
+  list-style-type: none;
+}

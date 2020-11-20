@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getCountryData } from "../../actions/coronaActions";
-import "../../App.css";
+import React from "react";
+import { useSelector } from "react-redux";
+import "./countryStyles.css";
 
 const CountryDashboard = () => {
   const { isLoading, countryName, countryData: data } = useSelector(
@@ -10,7 +9,7 @@ const CountryDashboard = () => {
 
   console.log(data.countryInfo.flag);
   return (
-    <div className="country-status">
+    <div className="country-status-details">
       <div className="image">
         <img src={data.countryInfo.flag} alt="" />
       </div>

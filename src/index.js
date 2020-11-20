@@ -1,9 +1,6 @@
 import React from "react";
-import { useEffect } from "react";
-// import Axios from "axios";
 
-import { useSelector, useDispatch } from "react-redux";
-import { getWholeData, getGlobalData } from "./actions/coronaActions";
+import { getWholeData } from "./actions/coronaActions";
 
 import ReactDOM from "react-dom";
 import "./index.css";

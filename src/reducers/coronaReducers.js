@@ -1,12 +1,11 @@
 import mapOptions from "../Options/mapOptions";
 import mapData from "../mapData/mapData";
 import { store } from "../store";
-import { useDispatch } from "react-redux";
 import { getEachCountry, getCountryData } from "../actions/coronaActions";
 
 const initialState = {
   mapOptions: mapOptions,
-  globalStatus: {},
+  worldStatus: {},
   isLoading: false,
   buttonType: "initial",
   topCountries: [],
@@ -27,7 +26,7 @@ export const coronaReducers = (state = initialState, action) => {
       return {
         ...state,
         buttonType: action.payload.buttonType,
-        globalStatus: action.payload.globalStatus,
+        worldStatus: action.payload.worldStatus,
         topCountries: action.payload.topCountries,
         isLoading: false,
         name: action.payload.name,

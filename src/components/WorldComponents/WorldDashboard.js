@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./worldStyles.css";
 import { useSelector } from "react-redux";
 
 function DashBoard() {
-  const { globalStatus, topCountries, buttonType, name } = useSelector(
+  const { worldStatus, topCountries, buttonType, name } = useSelector(
     (state) => state.corona
   );
 
@@ -15,41 +15,41 @@ function DashBoard() {
     .slice(0, 10);
 
   return (
-    <div className="global-status-wrapper">
-      <h2>Global Status</h2>
-      <div className="global-status">
+    <div className="world-area-status-wrapper">
+      <h1>Global Status</h1>
+      <div className="world-status">
         <h3>Total Cases</h3>
         <p>
-          <b>Total Confirmed Cases: </b>
-          {globalStatus.TotalConfirmed}
+          Total Confirmed Cases:
+          {worldStatus.TotalConfirmed}
         </p>
         <p>
-          <strong>Total Deaths Cases: </strong>
-          {globalStatus.TotalDeaths}
+          Total Deaths Cases:
+          {worldStatus.TotalDeaths}
         </p>
         <p>
-          <strong>Total Recovered Cases: </strong>
-          {globalStatus.TotalRecovered}
+          Total Recovered Cases:
+          {worldStatus.TotalRecovered}
         </p>
         <h4>New Cases</h4>
         <p>
-          <strong>New Confirmed Cases: </strong>
-          {globalStatus.NewConfirmed}
+          New Confirmed Cases:
+          {worldStatus.NewConfirmed}
         </p>
         <p>
-          <strong>New Deaths Cases: </strong>
-          {globalStatus.NewDeaths}
+          New Deaths Cases:
+          {worldStatus.NewDeaths}
         </p>
         <p>
-          <strong>New Recovered Cases: </strong>
-          {globalStatus.NewRecovered}
+          New Recovered Cases:
+          {worldStatus.NewRecovered}
         </p>
       </div>
       <hr />
       <div className="top-countries">
-        <h4>
+        <h3>
           Top {sortedtopCountries.length} countries by {buttonType} case
-        </h4>
+        </h3>
         {sortedtopCountries.map((country) => (
           <li>
             <b>{country[0]}</b>:{country[1]}
