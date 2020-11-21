@@ -7,7 +7,6 @@ const CountryDashboard = () => {
     (state) => state.countryStatus
   );
 
-  console.log(data.countryInfo.flag);
   return (
     <div className="country-status-details">
       <div className="image">
