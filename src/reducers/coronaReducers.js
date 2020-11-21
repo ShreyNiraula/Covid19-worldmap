@@ -50,11 +50,15 @@ export const coronaReducers = (state = initialState, action) => {
               },
               point: {
                 events: {
-                  click: function () {
-                    const country = this.name;
-                    const buttonType = action.payload.buttonType;
-                    store.dispatch(getCountryData(country));
-                    store.dispatch(getEachCountry(country, buttonType));
+                  click: async function () {
+                    try {
+                      const country = this.name;
+                      const buttonType = action.payload.buttonType;
+                      await store.dispatch(getCountryData(country));
+                      await store.dispatch(getEachCountry(country, buttonType));
+                    } catch (err) {
+                      console.log(err);
+                    }
                   },
                 },
               },
