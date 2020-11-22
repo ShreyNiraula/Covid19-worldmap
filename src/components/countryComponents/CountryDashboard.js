@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getCountryData } from "../../actions/coronaActions";
+import React from "react";
+import { useSelector } from "react-redux";
 import "../../App.css";
 
 const CountryDashboard = () => {
