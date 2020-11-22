@@ -9,7 +9,7 @@ import MapChart from "./components/MapChart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import GlobalDashBoard from "./components/WorldDashboard";
-import CountryDashboard from "./components/CountryComponents/CountryDashboard";
+import CountryDashboard from "./components/CountryDashboard";
 
 import { getWholeData } from "./actions/coronaActions";
 require("highcharts/modules/map")(Highcharts); // has to be imported atlast
