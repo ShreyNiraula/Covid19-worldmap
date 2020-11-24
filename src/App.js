@@ -4,13 +4,21 @@ import "./App.css";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
+<<<<<<< HEAD
 import MapChart from "./components/MapChart";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import GlobalDashBoard from "./components/WorldDashboard";
 import CountryDashboard from "./components/CountryDashboard";
+=======
+import MapChart from "./components/WorldComponents/WorldMapChart";
+>>>>>>> master
 
+import Header from "./components/GeneralComponents/Header";
+import Footer from "./components/GeneralComponents/Footer";
+import WorldDashboard from "./components/WorldComponents/WorldDashboard";
+import CountryDashboard from "./components/CountryComponents/CountryDashboard";
 import { getWholeData } from "./actions/coronaActions";
 require("highcharts/modules/map")(Highcharts); // has to be imported atlast
 
@@ -85,14 +93,15 @@ function App() {
       {/* <div className="search-area">
         <input type="text" onKeyDown={handleSearch} />
       </div> */}
-      <div className="world-status-area">
+      <div className="world-area">
         <MapChart options={state.mapOptions} highcharts={Highcharts} />
-        <GlobalDashBoard />
+        <WorldDashboard />
       </div>
+
       {countryState.isLoading && <p>Chart Loading</p>}
       {countryState.isOpen && (
         <div className="country-dashboard">
-          <div className="chart-area">
+          <div className="country-chart-area">
             {/* <div className="chart-btn-grp">
           <button onClick={()=>fetchChart('confirmed')} className='btn' id='btn-cases'>Confirmed</button>
           <button onClick={()=>fetchChart('deaths')} className='btn' id='btn-deaths'>Deaths</button>

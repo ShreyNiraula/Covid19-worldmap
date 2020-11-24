@@ -50,7 +50,6 @@ export const getCountryData = (country) => async (dispatch) => {
     const resp = await Axios.get(
       `https://disease.sh/v3/covid-19/countries/${country}?yesterday=true&twoDaysAgo=false&strict=true`
     );
-    console.log("format", resp.data);
 
     dispatch({
       type: "COUNTRY_STATUS_SUCCESSFUL",
@@ -81,7 +80,7 @@ export const getWholeData = ({ buttonType }) => async (dispatch) => {
     var subtitle = "";
     var name = "";
     const resp = await Axios.get(`https://api.covid19api.com/summary`); // resp.data.countries = actually countries
-    var globalStatus = resp.data.Global;
+    var worldStatus = resp.data.Global;
     resp.data.Countries.forEach((country) => {
       var subarr = [];
       var subarrForTop = [];
@@ -125,11 +124,10 @@ export const getWholeData = ({ buttonType }) => async (dispatch) => {
       }
     });
     // console.log("countrywise", countryWise); // [{},{},...] where each {countryCode:, value:,}
-    console.log("global status", globalStatus);
     dispatch({
       type: "CORONA_SUCCESSFUL",
       payload: {
-        globalStatus, // object with global status data
+        worldStatus, // object with global status data
         topCountries,
         countryWise, // array
         color, // string

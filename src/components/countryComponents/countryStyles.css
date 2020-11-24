@@ -1,0 +1,17 @@
+.country-dashboard {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.country-dashboard .country-chart-area {
+  flex: 3;
+}
+.country-dashboard .country-status-details {
+  padding: 0.7rem;
+  flex: 1;
+  text-align: center;
+  background-color: #d6d6d6;
+}
+.country-dashboard .country-status-details ul li {
+  list-style: none;
+}

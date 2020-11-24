@@ -1,10 +1,10 @@
 import React from "react";
 import HighchartsReact from "highcharts-react-official";
-import "../App.css";
+import "./worldStyles.css";
 
 function MapChart({ options, highcharts }) {
   return (
-    <div className="map-wrapper">
+    <div className="world-area-map">
       <HighchartsReact
         highcharts={highcharts}
         constructorType={"mapChart"}

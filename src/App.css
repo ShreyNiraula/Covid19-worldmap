@@ -3,25 +3,7 @@
   margin: 0;
   padding: 0;
 }
-.header {
-  background-color: #222222;
-  color: white;
-  padding: 2.5em;
-  text-align: center;
-  margin-bottom: 3em;
-}
-.header span {
-  font-size: 2.5em;
-}
-.header #covid {
-  color: rgb(117, 169, 236);
-}
-.header #global {
-  color: rgb(236, 100, 152);
-}
-.header #visualization {
-  color: rgb(116, 235, 199);
-}
+
 .btn-grp {
   display: flex;
   text-align: center;
@@ -58,60 +40,6 @@
 #btn-recovered:hover {
   background-color: #d6d6d6;
   color: rgb(33, 75, 51);
-}
-
-.world-status-area {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.map-wrapper {
-  padding: 0.1rem;
-  flex: 3;
-  width: 70%;
-}
-
-.global-status-wrapper {
-  flex: 1;
-  padding: 0.5rem;
-  text-align: center;
-}
-
-.global-status-wrapper .global-status {
-  padding: 0.2rem 0;
-  font-size: 0.875rem;
-}
-.global-status-wrapper .top-countries {
-  padding: 0.2rem 0;
-}
-.global-status-wrapper .top-countries ul li b {
-  list-style-type: none;
-}
-
-.country-dashboard {
-  margin: 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-.country-dashboard .chart-area {
-  flex: 2;
-}
-.country-dashboard .country-status {
-  padding: 0.7rem;
-  flex: 1;
-  text-align: center;
-  background-color: #d6d6d6;
-}
-.country-dashboard .country-status ul li {
-  list-style: none;
-}
-.footer {
-  padding-block-start: 4em;
-  min-height: 8vh;
-  background-color: black;
-  color: white;
-  padding: 2em;
-  text-align: center;
 }
 
 @import "https://fonts.googleapis.com/css?family=Unica+One";

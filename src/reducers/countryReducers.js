@@ -1,9 +1,4 @@
 import { countryChartOptions } from "../Options/countryChartOptions";
-import mapData from "../mapData/mapData";
-import { store } from "../store";
-import { useDispatch } from "react-redux";
-// import $ from "jquery";
-import { getEachCountry } from "../actions/coronaActions";
 
 const initialState = {
   countryChartOptions: countryChartOptions,
