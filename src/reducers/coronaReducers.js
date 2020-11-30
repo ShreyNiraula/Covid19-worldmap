@@ -52,6 +52,7 @@ export const coronaReducers = (state = initialState, action) => {
                 events: {
                   click: async function () {
                     try {
+                      // TODO: await in this part seems to be causing some problem
                       const country = this.name;
                       const buttonType = action.payload.buttonType;
                       await store.dispatch(getCountryData(country));

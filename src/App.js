@@ -28,6 +28,7 @@ function App() {
     dispatch(getWholeData({ buttonType }));
   };
 
+  // TODO: for graph change...
   // const fetchChart = (buttonType)=>{
   //   var country = countryState.currentCountry
   //   console.log(buttonType+' pressed in chart')
@@ -37,8 +38,7 @@ function App() {
 
   // }
 
-  /******************************Search bar*********************************/
-
+  /// TODO: Search bar
   // const handleSearch = (e) => {
   //   if (e.key === "Enter") {
   //     // console.log(e.target.value);
