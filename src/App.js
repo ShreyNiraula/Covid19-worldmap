@@ -8,8 +8,10 @@ import MapChart from "./components/WorldComponents/WorldMapChart";
 
 import Header from "./components/GeneralComponents/Header";
 import Footer from "./components/GeneralComponents/Footer";
+
 import WorldDashboard from "./components/WorldComponents/WorldDashboard";
 import { getWholeData } from "./actions/coronaActions";
+import CountryDashboard from "./components/CountryComponents/CountryDashboard";
 require("highcharts/modules/map")(Highcharts); // has to be imported atlast
 
 function App() {
@@ -103,6 +105,7 @@ function App() {
             />
           </div>
           {/* // TODO: COUNTRYDASHBOARD */}
+          <CountryDashboard />
         </div>
       )}
       <Footer />
