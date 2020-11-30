@@ -11,7 +11,7 @@ import Footer from "./components/GeneralComponents/Footer";
 
 import WorldDashboard from "./components/WorldComponents/WorldDashboard";
 import { getWholeData } from "./actions/coronaActions";
-import CountryDashboard from "./components/CountryComponents/CountryDashboard";
+import NationBoard from "./components/cDashboard.js/NationBoard";
 require("highcharts/modules/map")(Highcharts); // has to be imported atlast
 
 function App() {
@@ -95,17 +95,16 @@ function App() {
         <div className="country-dashboard">
           <div className="country-chart-area">
             {/* <div className="chart-btn-grp">
-          <button onClick={()=>fetchChart('confirmed')} className='btn' id='btn-cases'>Confirmed</button>
-          <button onClick={()=>fetchChart('deaths')} className='btn' id='btn-deaths'>Deaths</button>
-          <button onClick={()=>fetchChart('recovered')} className='btn' id='btn-recovered'>Recovered</button>
-        </div> */}
+                <button onClick={()=>fetchChart('confirmed')} className='btn' id='btn-cases'>Confirmed</button>
+                <button onClick={()=>fetchChart('deaths')} className='btn' id='btn-deaths'>Deaths</button>
+                <button onClick={()=>fetchChart('recovered')} className='btn' id='btn-recovered'>Recovered</button>
+                </div> */}
             <HighchartsReact
               highcharts={Highcharts}
               options={countryState.countryChartOptions}
             />
           </div>
-          {/* // TODO: COUNTRYDASHBOARD */}
-          <CountryDashboard />
+          <NationBoard />
         </div>
       )}
       <Footer />

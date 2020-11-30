@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import "./countryStyles.css";
 
-const CountryDashboard = () => {
+const NationBoard = () => {
   const { isLoading, countryName, countryData: data } = useSelector(
     (state) => state.countryStatus
   );
@@ -34,4 +34,4 @@ const CountryDashboard = () => {
   );
 };
 
-export default CountryDashboard;
+export default NationBoard;
