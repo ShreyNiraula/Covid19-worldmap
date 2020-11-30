@@ -4,16 +4,7 @@ import "./App.css";
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-<<<<<<< HEAD
-import MapChart from "./components/MapChart";
-
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import GlobalDashBoard from "./components/WorldDashboard";
-import CountryDashboard from "./components/CountryDashboard";
-=======
 import MapChart from "./components/WorldComponents/WorldMapChart";
->>>>>>> master
 
 import Header from "./components/GeneralComponents/Header";
 import Footer from "./components/GeneralComponents/Footer";
