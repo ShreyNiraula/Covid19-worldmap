@@ -52,12 +52,18 @@ export const coronaReducers = (state = initialState, action) => {
                 events: {
                   click: async function () {
                     try {
-                      // TODO: await in this part seems to be causing some problem
+                      // TODO: dispatching the action in reducer is anti-pattern
+                      // for this, asyncDispatch middleware can be used
+                      // or redux-saga, or redux-loop etc
+                      // ref: [https://stackoverflow.com/questions/36730793/can-i-dispatch-an-action-in-reducer]
                       const country = this.name;
                       const buttonType = action.payload.buttonType;
                       await store.dispatch(getCountryData(country));
                       await store.dispatch(getEachCountry(country, buttonType));
                     } catch (err) {
+                      console.log(
+                        "iam at corona reducer catcch block, may be the request failed"
+                      );
                       console.log(err);
                     }
                   },

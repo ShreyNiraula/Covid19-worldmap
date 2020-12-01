@@ -47,6 +47,7 @@
   width: 100%;
   height: 20px;
   border: 0.2rem red solid;
+  background-color: #222;
 }
 .highcharts-background {
   /* fill: #222222; */

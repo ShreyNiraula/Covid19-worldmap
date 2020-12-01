@@ -7,10 +7,6 @@ export const countryChartOptions = {
     text: "Chart",
   },
 
-  // subtitle: {
-  //     text: 'chart sub'
-  // },
-
   yAxis: {
     title: {
       text: "Date",

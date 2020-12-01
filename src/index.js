@@ -11,7 +11,6 @@ import { store } from "./store";
 
 const buttonType = "initial";
 store.dispatch(getWholeData({ buttonType }));
-// store.dispatch(getGlobalData());
 ReactDOM.render(
   <Provider store={store}>
     <App />

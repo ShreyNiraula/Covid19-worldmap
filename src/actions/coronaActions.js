@@ -50,6 +50,7 @@ export const getCountryData = (country) => async (dispatch) => {
     const resp = await Axios.get(
       `https://disease.sh/v3/covid-19/countries/${country}?yesterday=true&twoDaysAgo=false&strict=true`
     );
+    console.log("country status data", resp.data);
 
     dispatch({
       type: "COUNTRY_STATUS_SUCCESSFUL",
